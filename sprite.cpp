@@ -1,5 +1,5 @@
 #include "sprite.h"
-
+#include "moneda.h"
 sprite::sprite(int r_, int x, int y)
 {
     r = r_;
@@ -43,6 +43,7 @@ void sprite::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
 {
     painter->drawPixmap(-ancho/2, -alto/2,*pixmap,columnas,0,ancho,alto);
     setScale(0.3);
+
 }
 
 int sprite::getR() const
@@ -78,7 +79,7 @@ void sprite::setPosy(int value)
 void sprite::up()
 {
     posy -= 1*velocidad;
-    setRotation(90);
+    setRotation(270);
     setPos(posx, posy);
 
 }
@@ -86,7 +87,7 @@ void sprite::up()
 void sprite::down()
 {
     posy += 1*velocidad;
-    setRotation(270);
+    setRotation(90);
     setPos(posx, posy);
 }
 
@@ -100,7 +101,23 @@ void sprite::left()
 void sprite::right()
 {
     posx += 1*velocidad;
-
+    setRotation(0);
     setPos(posx, posy);
 }
+
+void sprite::move()
+{
+    QList<QGraphicsItem *> colliding = collidingItems();
+    for(int i=0; i<colliding.size();i++){
+        if(typeid (*(colliding[i]))==typeid (this)){
+            scene()->removeItem(colliding[i]);
+            delete colliding[i];
+
+        }
+    }
+
+}
+
+
+
 

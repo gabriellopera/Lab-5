@@ -14,6 +14,7 @@
 #include <QDesktopWidget>
 #include <QDebug>
 #include "sprite.h"
+#include "moneda.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -31,9 +32,12 @@ private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
     QList<paredes *> paredes2;
+    QList<moneda *> monedas;
     sprite *personaje;
-
+    moneda *personaje2;
+    moneda *personaje3;
     float x,y,ancho,alto;
     void keyPressEvent(QKeyEvent * evento);
+    void mover();
 };
 #endif // MAINWINDOW_H

@@ -2,11 +2,12 @@
 #define SPRITE_H
 
 //#include "mainwindow.h"
-#include <QObject>
-#include <QGraphicsItem>
-#include <QTimer>
-#include <QPixmap>
-#include <QPainter>
+    #include <QObject>
+    #include <QGraphicsItem>
+    #include <QTimer>
+    #include <QPixmap>
+    #include <QPainter>
+    #include <QGraphicsScene>
 
 
 class sprite : public QObject, public QGraphicsItem
@@ -36,6 +37,7 @@ public:
     void down();
     void left();
     void right();
+    void move();
 
 
 signals:

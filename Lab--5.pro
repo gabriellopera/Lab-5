@@ -11,11 +11,13 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    moneda.cpp \
     paredes.cpp \
     sprite.cpp
 
 HEADERS += \
     mainwindow.h \
+    moneda.h \
     paredes.h \
     sprite.h
 

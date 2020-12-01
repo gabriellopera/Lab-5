@@ -6,19 +6,33 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-//    QRect Desktop = QApplication::desktop()->screenGeometry();
-//    x=Desktop.x();
-//    y=Desktop.y();
-//    ancho=Desktop.width();
-//    alto=Desktop.height();
+    QRect Desktop = QApplication::desktop()->screenGeometry();
+    x=Desktop.x();
+    y=Desktop.y();
+    ancho=Desktop.width();
+    alto=Desktop.height();
 
-    scene = new QGraphicsScene;
+    scene = new QGraphicsScene(x,y,ancho,alto);
+    scene->setBackgroundBrush(QPixmap(":/images/cosmos.jpg"));
     ui->graphicsView->setScene(scene);
     personaje = new sprite();
     scene->setSceneRect(0,0,540,600);
     scene->addItem(personaje);
     personaje->setPos(25,20);
 
+//    personaje2 = new moneda();
+//    scene->addItem(personaje2);
+//    personaje2->setPos(20,70);
+
+
+monedas.append(new moneda(-35,-35,120,50));
+monedas.append(new moneda(-35,-35,120,100));
+monedas.append(new moneda(-35,-35,120,150));
+monedas.append(new moneda(-35,-35,120,200));
+monedas.append(new moneda(-35,-35,120,250));
+monedas.append(new moneda(-35,-35,120,300));
+monedas.append(new moneda(-35,-35,120,400));
+monedas.append(new moneda(-35,-35,120,450));
 
 paredes2.append(new paredes(20,220,20,20));//left up
 paredes2.append(new paredes(20,240,20,-360));//left down
@@ -114,7 +128,21 @@ paredes2.append(new paredes(20,100,-260,20));//up
     {
         scene->addItem(*it);
     }
+
+    for(auto it2=monedas.begin();it2!=monedas.end();it2++){
+        scene->addItem(*it2);
+    }
+
 }
+
+//void MainWindow::mover(){
+//    for(auto it2=monedas.begin();it2!=monedas.end();it2++){
+//        if(personaje->collidesWithItem<monedas[it2]>){
+
+//        }
+//    }
+//}
+
 
 void MainWindow::keyPressEvent(QKeyEvent *evento)
 {
