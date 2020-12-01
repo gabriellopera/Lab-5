@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -19,66 +20,69 @@ MainWindow::MainWindow(QWidget *parent)
     scene->setSceneRect(0,0,540,600);
     scene->addItem(personaje);
     personaje->setPos(25,20);
-
-//    personaje2 = new moneda();
-//    scene->addItem(personaje2);
-//    personaje2->setPos(20,70);
+    score = new Score();
+    scene->addItem(score);
 
 
-monedas.append(new moneda(-35,-35,120,50));
+
+
+monedas.append(new moneda(-35,-35,25,60));
+monedas.append(new moneda(-35,-35,25,100));
+monedas.append(new moneda(-35,-35,25,140));
+monedas.append(new moneda(-35,-35,55,160));
+monedas.append(new moneda(-35,-35,85,160));
+monedas.append(new moneda(-35,-35,55,100));
+monedas.append(new moneda(-35,-35,85,100));
+
+monedas.append(new moneda(-35,-35,120,60));
 monedas.append(new moneda(-35,-35,120,100));
-monedas.append(new moneda(-35,-35,120,150));
-monedas.append(new moneda(-35,-35,120,200));
-monedas.append(new moneda(-35,-35,120,250));
+monedas.append(new moneda(-35,-35,120,140));
+monedas.append(new moneda(-35,-35,120,180));
+monedas.append(new moneda(-35,-35,120,220));
+monedas.append(new moneda(-35,-35,120,260));
 monedas.append(new moneda(-35,-35,120,300));
-monedas.append(new moneda(-35,-35,120,400));
-monedas.append(new moneda(-35,-35,120,450));
+monedas.append(new moneda(-35,-35,120,340));
+monedas.append(new moneda(-35,-35,120,380));
+monedas.append(new moneda(-35,-35,120,420));
+monedas.append(new moneda(-35,-35,120,460));
+monedas.append(new moneda(-35,-35,120,500));
+monedas.append(new moneda(-35,-35,120,540));
+
+
 
 paredes2.append(new paredes(20,220,20,20));//left up
 paredes2.append(new paredes(20,240,20,-360));//left down
-
 paredes2.append(new paredes(100,20,0,-180));  // -
 paredes2.append(new paredes(20,60,-80,-200)); // |
 paredes2.append(new paredes(100,20,20,-240)); // -
-
 paredes2.append(new paredes(120,20,20,-300)); // -
 paredes2.append(new paredes(20,60,-80,-320)); // |
 paredes2.append(new paredes(80,20,0,-360));   // -
-
 paredes2.append(new paredes(20,220,-540,20));//right up
 paredes2.append(new paredes(20,240,-540,-360));//right down
-
 paredes2.append(new paredes(100,20,-440,-180));  // -
 paredes2.append(new paredes(20,60,-440,-200)); // |
 paredes2.append(new paredes(100,20,-460,-240)); // -
-
 paredes2.append(new paredes(120,20,-440,-300)); // -
 paredes2.append(new paredes(20,60,-440,-320)); // |
 paredes2.append(new paredes(80,20,-460,-360));   // -
-
 paredes2.append(new paredes(580,20,20,20));//up
 paredes2.append(new paredes(580,20,20,-600));//up
-
 //cajas superiores
     paredes2.append(new paredes(60,40,-40,-40));//left box up
     paredes2.append(new paredes(60,20,-40,-120));//sub left
-
     paredes2.append(new paredes(80,40,-140,-40));//left box up_2
     paredes2.append(new paredes(80,40,-140,-40));//middle
-
     paredes2.append(new paredes(60,40,-440,-40));//right box up
     paredes2.append(new paredes(80,40,-320,-40));//right box up_2
     paredes2.append(new paredes(60,20,-440,-120));//sub right
-
     paredes2.append(new paredes(140,20,-200,-120));//up center
     paredes2.append(new paredes(20,80,-260,-120));//up center
-
-paredes2.append(new paredes(20,100,-260,20));//up
+    paredes2.append(new paredes(20,100,-260,20));//up
 
 //T laterales up
     paredes2.append(new paredes(20,140,-140,-120));//T left vertical
     paredes2.append(new paredes(80,20,-140,-180));//T left horizontal
-
     paredes2.append(new paredes(20,140,-380,-120));//T right vertical
     paredes2.append(new paredes(80,20,-320,-180));//T right horizontal
 //fin de la t up
@@ -86,10 +90,8 @@ paredes2.append(new paredes(20,100,-260,20));//up
 //laterales tunel y T
     paredes2.append(new paredes(20,80,-140,-300));// lateral left
     paredes2.append(new paredes(20,80,-380,-300));//lateral right
-
     paredes2.append(new paredes(140,20,-200,-360));//middle
     paredes2.append(new paredes(20,80,-260,-360));//up center
-
     paredes2.append(new paredes(140,20,-200,-480));
     paredes2.append(new paredes(20,60,-260,-500));
 //fin de t y lateral
@@ -97,20 +99,15 @@ paredes2.append(new paredes(20,100,-260,20));//up
 //Parte Inferior izquierda
     paredes2.append(new paredes(60,20,-40,-420));
     paredes2.append(new paredes(20,60,-80,-440));
-
     paredes2.append(new paredes(40,20,0,-480));
-
     paredes2.append(new paredes(180,20,-40,-540));
     paredes2.append(new paredes(20,60,-140,-480));
-
     paredes2.append(new paredes(80,20,-140,-420));
 
 //Parte inferior derecha
     paredes2.append(new paredes(60,20,-440,-420));
     paredes2.append(new paredes(20,60,-440,-440));
-
     paredes2.append(new paredes(40,20,-500,-480));
-
     paredes2.append(new paredes(180,20,-320,-540));
     paredes2.append(new paredes(20,60,-380,-480));
 
@@ -133,15 +130,12 @@ paredes2.append(new paredes(20,100,-260,20));//up
         scene->addItem(*it2);
     }
 
+
 }
 
-//void MainWindow::mover(){
-//    for(auto it2=monedas.begin();it2!=monedas.end();it2++){
-//        if(personaje->collidesWithItem<monedas[it2]>){
+void MainWindow::mover(){
 
-//        }
-//    }
-//}
+}
 
 
 void MainWindow::keyPressEvent(QKeyEvent *evento)
@@ -154,13 +148,28 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
                 personaje->right();
             }
         }
+        for(auto it2=monedas.begin();it2!=monedas.end();it2++){
+            if(personaje->collidesWithItem(*it2)){
+                scene->removeItem(*it2);
+                score->increase();
+                monedas.pop_back();
+            }
+        }
     }
+
     else if(evento->key() == Qt::Key_D){
         personaje->right();
         for(auto it=paredes2.begin();it!=paredes2.end();it++)
         {
             if(personaje->collidesWithItem(*it)){
                 personaje->left();
+            }
+        }
+        for(auto it2=monedas.begin();it2!=monedas.end();it2++){
+            if(personaje->collidesWithItem(*it2)){
+                scene->removeItem(*it2);
+                score->increase();
+                monedas.erase(it2);
             }
         }
     }
@@ -172,6 +181,13 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
                 personaje->down();
             }
         }
+        for(auto it2=monedas.begin();it2!=monedas.end();it2++){
+            if(personaje->collidesWithItem(*it2)){
+                scene->removeItem(*it2);
+                score->increase();
+                monedas.erase(it2);
+            }
+        }
     }
     else if(evento->key() == Qt::Key_S){
         personaje->down();
@@ -179,6 +195,13 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
         {
             if(personaje->collidesWithItem(*it)){
                 personaje->up();
+            }
+        }
+        for(auto it2=monedas.begin();it2!=monedas.end();it2++){
+            if(personaje->collidesWithItem(*it2)){
+                scene->removeItem(*it2);
+                score->increase();
+                monedas.erase(it2);
             }
         }
     }

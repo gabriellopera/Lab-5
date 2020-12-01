@@ -1,7 +1,7 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
-//#include "mainwindow.h"
+
     #include <QObject>
     #include <QGraphicsItem>
     #include <QTimer>

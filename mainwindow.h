@@ -15,6 +15,7 @@
 #include <QDebug>
 #include "sprite.h"
 #include "moneda.h"
+#include "score.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -28,6 +29,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
@@ -39,5 +41,6 @@ private:
     float x,y,ancho,alto;
     void keyPressEvent(QKeyEvent * evento);
     void mover();
+    Score * score;
 };
 #endif // MAINWINDOW_H

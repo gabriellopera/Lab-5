@@ -13,12 +13,14 @@ SOURCES += \
     mainwindow.cpp \
     moneda.cpp \
     paredes.cpp \
+    score.cpp \
     sprite.cpp
 
 HEADERS += \
     mainwindow.h \
     moneda.h \
     paredes.h \
+    score.h \
     sprite.h
 
 FORMS += \

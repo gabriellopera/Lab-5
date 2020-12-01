@@ -105,19 +105,4 @@ void sprite::right()
     setPos(posx, posy);
 }
 
-void sprite::move()
-{
-    QList<QGraphicsItem *> colliding = collidingItems();
-    for(int i=0; i<colliding.size();i++){
-        if(typeid (*(colliding[i]))==typeid (this)){
-            scene()->removeItem(colliding[i]);
-            delete colliding[i];
-
-        }
-    }
-
-}
-
-
-
 
