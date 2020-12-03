@@ -21,7 +21,7 @@ sprite::sprite(QObject *parent) : QObject(parent)
 
     timer->start(100);
     connect(timer,&QTimer::timeout, this,&sprite::Actualizacion);
-    setPos(20,20);
+    setPos(200,220);
 
 }
 
@@ -79,7 +79,6 @@ void sprite::setPosy(int value)
 void sprite::up()
 {
     posy -= 1*velocidad;
-    setRotation(270);
     setPos(posx, posy);
 
 }
@@ -87,21 +86,18 @@ void sprite::up()
 void sprite::down()
 {
     posy += 1*velocidad;
-    setRotation(90);
     setPos(posx, posy);
 }
 
 void sprite::left()
 {
     posx -= 1*velocidad;
-    setRotation(180);
     setPos(posx, posy);
 }
 
 void sprite::right()
 {
     posx += 1*velocidad;
-    setRotation(0);
     setPos(posx, posy);
 }
 

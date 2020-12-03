@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "sprite.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,18 +13,21 @@ MainWindow::MainWindow(QWidget *parent)
     ancho=Desktop.width();
     alto=Desktop.height();
 
-    scene = new QGraphicsScene(x,y,ancho,alto);
+    scene = new QGraphicsScene();//x,y,ancho,alto);
     scene->setBackgroundBrush(QPixmap(":/images/cosmos.jpg"));
     ui->graphicsView->setScene(scene);
     personaje = new sprite();
     scene->setSceneRect(0,0,540,600);
     scene->addItem(personaje);
-    personaje->setPos(25,20);
+    //personaje->setPos(200,220);
     score = new Score();
     scene->addItem(score);
+    buu = new fantasma();
+    scene->addItem(buu);
+    buu->setPos(250,250);
 
-
-
+//fantasmas.append(new fantasma(-35,-35,25,60));
+//fantasmas.append(new fantasma(-35,-35,25,100));
 
 monedas.append(new moneda(-35,-35,25,60));
 monedas.append(new moneda(-35,-35,25,100));
@@ -46,9 +49,37 @@ monedas.append(new moneda(-35,-35,120,380));
 monedas.append(new moneda(-35,-35,120,420));
 monedas.append(new moneda(-35,-35,120,460));
 monedas.append(new moneda(-35,-35,120,500));
-monedas.append(new moneda(-35,-35,120,540));
+monedas.append(new moneda(-35,-35,85,520));
 
+monedas.append(new moneda(-35,-35,420,60));
+monedas.append(new moneda(-35,-35,420,100));
+monedas.append(new moneda(-35,-35,420,140));
+monedas.append(new moneda(-35,-35,420,180));
+monedas.append(new moneda(-35,-35,420,220));
+monedas.append(new moneda(-35,-35,420,260));
+monedas.append(new moneda(-35,-35,420,300));
+monedas.append(new moneda(-35,-35,420,340));
+monedas.append(new moneda(-35,-35,420,380));
+monedas.append(new moneda(-35,-35,420,420));
+monedas.append(new moneda(-35,-35,420,460));
+monedas.append(new moneda(-35,-35,420,500));
+monedas.append(new moneda(-35,-35,460,520));
 
+monedas.append(new moneda(-35,-35,25,580));
+monedas.append(new moneda(-35,-35,55,580));
+monedas.append(new moneda(-35,-35,85,580));
+monedas.append(new moneda(-35,-35,115,580));
+monedas.append(new moneda(-35,-35,145,580));
+monedas.append(new moneda(-35,-35,175,580));
+monedas.append(new moneda(-35,-35,205,580));
+monedas.append(new moneda(-35,-35,235,580));
+monedas.append(new moneda(-35,-35,265,580));
+monedas.append(new moneda(-35,-35,295,580));
+monedas.append(new moneda(-35,-35,325,580));
+monedas.append(new moneda(-35,-35,355,580));
+monedas.append(new moneda(-35,-35,385,580));
+monedas.append(new moneda(-35,-35,415,580));
+monedas.append(new moneda(-35,-35,445,580));
 
 paredes2.append(new paredes(20,220,20,20));//left up
 paredes2.append(new paredes(20,240,20,-360));//left down
@@ -120,6 +151,9 @@ paredes2.append(new paredes(580,20,20,-600));//up
     paredes2.append(new paredes(20,80,-200,-240));
     paredes2.append(new paredes(20,80,-320,-240));
 
+    timer = new QTimer();
+    connect(timer,SIGNAL(timeout()),this,SLOT(moveFantasma()));
+    timer->start(8);
 
     for(auto it=paredes2.begin();it!=paredes2.end();it++)
     {
@@ -129,18 +163,30 @@ paredes2.append(new paredes(580,20,20,-600));//up
     for(auto it2=monedas.begin();it2!=monedas.end();it2++){
         scene->addItem(*it2);
     }
+    for(auto it2=fantasmas.begin();it2!=fantasmas.end();it2++){
+        scene->addItem(*it2);
+    }
 
 
 }
 
-void MainWindow::mover(){
 
-}
 
 
 void MainWindow::keyPressEvent(QKeyEvent *evento)
 {
+    for(int i=0;i<monedas.size();i++){
+        if(personaje->collidesWithItem(monedas.at(i))){
+            scene->removeItem(monedas.at(i));
+            score->increase();
+            monedas.removeAt(i);
+         }
+    }
+
+
+
     if(evento->key() == Qt::Key_A){
+        personaje->setRotation(180);
         personaje->left();
         for(auto it=paredes2.begin();it!=paredes2.end();it++)
         {
@@ -148,16 +194,14 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
                 personaje->right();
             }
         }
-        for(auto it2=monedas.begin();it2!=monedas.end();it2++){
-            if(personaje->collidesWithItem(*it2)){
-                scene->removeItem(*it2);
-                score->increase();
-                monedas.pop_back();
-            }
+        if(personaje->x()==0 && personaje->y()==280){
+            personaje->setPosx(550);
+            personaje->setPosy(280);
         }
     }
 
     else if(evento->key() == Qt::Key_D){
+        personaje->setRotation(0);
         personaje->right();
         for(auto it=paredes2.begin();it!=paredes2.end();it++)
         {
@@ -165,15 +209,13 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
                 personaje->left();
             }
         }
-        for(auto it2=monedas.begin();it2!=monedas.end();it2++){
-            if(personaje->collidesWithItem(*it2)){
-                scene->removeItem(*it2);
-                score->increase();
-                monedas.erase(it2);
-            }
+        if(personaje->x()==550 && personaje->y()==280){
+            personaje->setPosx(0);
+            personaje->setPosy(280);
         }
     }
     else if(evento->key() == Qt::Key_W){
+        personaje->setRotation(270);
         personaje->up();
         for(auto it=paredes2.begin();it!=paredes2.end();it++)
         {
@@ -181,15 +223,9 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
                 personaje->down();
             }
         }
-        for(auto it2=monedas.begin();it2!=monedas.end();it2++){
-            if(personaje->collidesWithItem(*it2)){
-                scene->removeItem(*it2);
-                score->increase();
-                monedas.erase(it2);
-            }
-        }
     }
     else if(evento->key() == Qt::Key_S){
+        personaje->setRotation(90);
         personaje->down();
         for(auto it=paredes2.begin();it!=paredes2.end();it++)
         {
@@ -197,16 +233,50 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
                 personaje->up();
             }
         }
-        for(auto it2=monedas.begin();it2!=monedas.end();it2++){
-            if(personaje->collidesWithItem(*it2)){
-                scene->removeItem(*it2);
-                score->increase();
-                monedas.erase(it2);
+    }
+}
+
+void MainWindow::moveFantasma()
+{
+    if(buu->x() < personaje->x())
+    {
+        buu->right();
+        for(auto it=paredes2.begin();it!=paredes2.end();it++)
+        {
+            if(buu->collidesWithItem(*it)){
+                buu->left();
+            }
+        }
+    }
+    else if(buu->x() > personaje->x()){
+        buu->left();
+        for(auto it=paredes2.begin();it!=paredes2.end();it++)
+        {
+            if(buu->collidesWithItem(*it)){
+                buu->right();
+            }
+        }
+    }
+
+    if(buu->y() < personaje->y()){
+        buu->down();
+        for(auto it=paredes2.begin();it!=paredes2.end();it++)
+        {
+            if(buu->collidesWithItem(*it)){
+                buu->up();
+            }
+        }
+    }
+    else if(buu->y() > personaje->y()){
+        buu->up();
+        for(auto it=paredes2.begin();it!=paredes2.end();it++)
+        {
+            if(buu->collidesWithItem(*it)){
+                buu->down();
             }
         }
     }
 }
-
 
 MainWindow::~MainWindow()
 {
