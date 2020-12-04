@@ -10,6 +10,8 @@ CONFIG += c++11
 
 SOURCES += \
     fantasma.cpp \
+    finaltxt.cpp \
+    health.cpp \
     main.cpp \
     mainwindow.cpp \
     moneda.cpp \
@@ -19,6 +21,8 @@ SOURCES += \
 
 HEADERS += \
     fantasma.h \
+    finaltxt.h \
+    health.h \
     mainwindow.h \
     moneda.h \
     paredes.h \

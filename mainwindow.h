@@ -15,8 +15,10 @@
 #include <QDebug>
 #include "sprite.h"
 #include "moneda.h"
-#include "score.h"
 #include "fantasma.h"
+#include "score.h"
+#include "health.h"
+#include "finaltxt.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -30,22 +32,22 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
 public slots:
-    void moveFantasma();
+    void moveEnemy();
 
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
     QList<paredes *> paredes2;
     QList<moneda *> monedas;
-    QList<fantasma *>fantasmas;
+    Score *puntaje;
+    Health *salud;
+    fantasma *buu, *buu2, *buu3;
+    finaltxt *textF;
     sprite *personaje;
-    moneda *personaje2;
-    fantasma *buu;
     QTimer *timer;
     float x,y,ancho,alto;
     void keyPressEvent(QKeyEvent * evento);
-    void mover();
-    Score * score;
 };
 #endif // MAINWINDOW_H

@@ -31,26 +31,9 @@ void moneda::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
 {
     painter->drawPixmap(-ancho/2, -alto/2,*pixmap2,columnas,filas,ancho,alto);
     setScale(0.32);
-
 }
 
-//moneda::moneda(QObject *parent2) : QObject(parent2)
-//{
-//    timer2 =new QTimer();
-//    filas =0;
-//    columnas =0;
 
-//    pixmap2 = new QPixmap(":/images/PC Computer.png");
-
-//    //dimensiones imagen
-//    ancho = 70;
-//    alto = 100;
-
-//    timer2->start(100);
-//    connect(timer2,&QTimer::timeout, this,&moneda::Actualizacion2);
-//    //setPos(0,80);
-
-//}
 
 void moneda::Actualizacion2()
 {

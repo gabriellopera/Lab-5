@@ -1,27 +1,26 @@
 #include "sprite.h"
 #include "moneda.h"
+#include <QDebug>
+
 sprite::sprite(int r_, int x, int y)
 {
     r = r_;
-        posx = x;
-        posy = y;
-        setPos(posx,posy);
+    posx = x;
+    posy = y;
+    setPos(posx,posy);
 }
 sprite::sprite(QObject *parent) : QObject(parent)
 {
     timer =new QTimer();
     filas =0;
     columnas =0;
-
-    pixmap = new QPixmap(":/images/PACMAN.png");
-
+    pixmap = new QPixmap(":/images/pac2.png");
     //dimensiones imagen
     ancho = 100;
     alto = 100;
-
     timer->start(100);
     connect(timer,&QTimer::timeout, this,&sprite::Actualizacion);
-    setPos(200,220);
+    setPos(20,20);
 
 }
 
@@ -43,7 +42,6 @@ void sprite::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
 {
     painter->drawPixmap(-ancho/2, -alto/2,*pixmap,columnas,0,ancho,alto);
     setScale(0.3);
-
 }
 
 int sprite::getR() const
@@ -80,7 +78,6 @@ void sprite::up()
 {
     posy -= 1*velocidad;
     setPos(posx, posy);
-
 }
 
 void sprite::down()
@@ -100,5 +97,18 @@ void sprite::right()
     posx += 1*velocidad;
     setPos(posx, posy);
 }
+
+void sprite::move()
+{
+    QList<QGraphicsItem *> colliding = collidingItems();
+    for(int i=0; i<colliding.size();i++){
+        if(typeid (*(colliding[i]))==typeid (this)){
+            scene()->removeItem(colliding[i]);
+            delete colliding[i];
+        }
+    }
+}
+
+
 
 

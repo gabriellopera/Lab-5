@@ -1,8 +1,12 @@
 <RCC>
+    <qresource prefix="/imagen"/>
     <qresource prefix="/">
-        <file>images/PACMAN.png</file>
-        <file>images/cosmos.jpg</file>
-        <file>images/PC Computer.png</file>
         <file>images/Mario Custom.png</file>
+        <file>images/pac2.png</file>
+        <file>images/fantasmaReal.png</file>
+        <file>images/PC Computer.png</file>
+        <file>images/cosmos.jpg</file>
+        <file>images/Mobile.png</file>
+        <file>images/MapleStory.png</file>
     </qresource>
 </RCC>
