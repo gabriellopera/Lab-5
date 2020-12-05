@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <sprite.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -19,9 +18,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->graphicsView->setScene(scene);
     personaje = new sprite();
-
     textF= new finaltxt();
-    textF->setPos(60,240);
+    textF->setPos(60,280);
     puntaje= new Score();
     salud = new Health();
     scene->addItem(personaje);
@@ -41,84 +39,57 @@ MainWindow::MainWindow(QWidget *parent)
     scene->addItem(buu3);
 
 
-
 {
-
-paredes2.append(new paredes(20,220,20,20));
-paredes2.append(new paredes(20,240,20,-360));
-
-paredes2.append(new paredes(100,20,0,-180));
-paredes2.append(new paredes(20,60,-80,-200));
-paredes2.append(new paredes(100,20,20,-240));
-
-paredes2.append(new paredes(120,20,20,-300));
-paredes2.append(new paredes(20,60,-80,-320));
-paredes2.append(new paredes(80,20,0,-360));
-
-paredes2.append(new paredes(20,220,-540,20));
-paredes2.append(new paredes(20,240,-540,-360));
-
-paredes2.append(new paredes(100,20,-440,-180));
-paredes2.append(new paredes(20,60,-440,-200));
-paredes2.append(new paredes(100,20,-460,-240));
-
-paredes2.append(new paredes(120,20,-440,-300));
-paredes2.append(new paredes(20,60,-440,-320));
-paredes2.append(new paredes(80,20,-460,-360));
-
-paredes2.append(new paredes(580,20,20,20));
-paredes2.append(new paredes(580,20,20,-600));
-
+    paredes2.append(new paredes(20,220,20,20));
+    paredes2.append(new paredes(20,240,20,-360));
+    paredes2.append(new paredes(100,20,0,-180));
+    paredes2.append(new paredes(20,60,-80,-200));
+    paredes2.append(new paredes(100,20,20,-240));
+    paredes2.append(new paredes(120,20,20,-300));
+    paredes2.append(new paredes(20,60,-80,-320));
+    paredes2.append(new paredes(80,20,0,-360));
+    paredes2.append(new paredes(20,220,-540,20));
+    paredes2.append(new paredes(20,240,-540,-360));
+    paredes2.append(new paredes(100,20,-440,-180));
+    paredes2.append(new paredes(20,60,-440,-200));
+    paredes2.append(new paredes(100,20,-460,-240));
+    paredes2.append(new paredes(120,20,-440,-300));
+    paredes2.append(new paredes(20,60,-440,-320));
+    paredes2.append(new paredes(80,20,-460,-360));
+    paredes2.append(new paredes(580,20,20,20));
+    paredes2.append(new paredes(580,20,20,-600));
     paredes2.append(new paredes(60,40,-40,-40));
     paredes2.append(new paredes(60,20,-40,-120));
-
     paredes2.append(new paredes(80,40,-140,-40));
     paredes2.append(new paredes(80,40,-140,-40));
-
     paredes2.append(new paredes(60,40,-440,-40));
     paredes2.append(new paredes(80,40,-320,-40));
     paredes2.append(new paredes(60,20,-440,-120));
-
     paredes2.append(new paredes(140,20,-200,-120));
     paredes2.append(new paredes(20,80,-260,-120));
-
     paredes2.append(new paredes(20,100,-260,20));
-
     paredes2.append(new paredes(20,140,-140,-120));
     paredes2.append(new paredes(80,20,-140,-180));
-
     paredes2.append(new paredes(20,140,-380,-120));
     paredes2.append(new paredes(80,20,-320,-180));
-
     paredes2.append(new paredes(20,80,-140,-300));
     paredes2.append(new paredes(20,80,-380,-300));
-
     paredes2.append(new paredes(140,20,-200,-360));
     paredes2.append(new paredes(20,80,-260,-360));
-
     paredes2.append(new paredes(140,20,-200,-480));
     paredes2.append(new paredes(20,60,-260,-500));
-
     paredes2.append(new paredes(60,20,-40,-420));
     paredes2.append(new paredes(20,60,-80,-440));
-
     paredes2.append(new paredes(40,20,0,-480));
-
     paredes2.append(new paredes(180,20,-40,-540));
     paredes2.append(new paredes(20,60,-140,-480));
-
     paredes2.append(new paredes(80,20,-140,-420));
-
     paredes2.append(new paredes(60,20,-440,-420));
     paredes2.append(new paredes(20,60,-440,-440));
-
     paredes2.append(new paredes(40,20,-500,-480));
-
     paredes2.append(new paredes(180,20,-320,-540));
     paredes2.append(new paredes(20,60,-380,-480));
-
     paredes2.append(new paredes(80,20,-320,-420));
-
     paredes2.append(new paredes(50,20,-200,-240));
     paredes2.append(new paredes(50,20,-290,-240));
     paredes2.append(new paredes(140,20,-200,-300));
@@ -179,7 +150,6 @@ paredes2.append(new paredes(580,20,20,-600));
     monedas.append(new moneda(-35,-35,445,580));
     monedas.append(new moneda(-35,-35,475,580));
     monedas.append(new moneda(-35,-35,505,580));
-
     monedas.append(new moneda(-35,-35,55,20));
     monedas.append(new moneda(-35,-35,85,20));
     monedas.append(new moneda(-35,-35,115,20));
@@ -199,7 +169,6 @@ paredes2.append(new paredes(580,20,20,-600));
     monedas.append(new moneda(-35,-35,465,160));
     monedas.append(new moneda(-35,-35,495,100));
     monedas.append(new moneda(-35,-35,465,100));
-
     monedas.append(new moneda(-35,-35,145,100));
     monedas.append(new moneda(-35,-35,175,100));
     monedas.append(new moneda(-35,-35,205,100));
@@ -209,7 +178,6 @@ paredes2.append(new paredes(580,20,20,-600));
     monedas.append(new moneda(-35,-35,325,100));
     monedas.append(new moneda(-35,-35,355,100));
     monedas.append(new moneda(-35,-35,385,100));
-
     monedas.append(new moneda(-35,-35,240,60));
     monedas.append(new moneda(-35,-35,295,60));
 }
