@@ -318,7 +318,6 @@ void MainWindow::moveEnemy()
                 buu->setPos(280,280);
                 buu->setPosx(280);
                 buu->setPosy(280);
-                qDebug() <<"PERSONAJE PERDIO ";
             }
         }
         else
@@ -356,7 +355,6 @@ void MainWindow::moveEnemy()
                 buu->setPos(280,280);
                 buu->setPosx(280);
                 buu->setPosy(280);
-                qDebug() <<"PERSONAJE PERDIO ";
             }
         }
         else
@@ -396,7 +394,6 @@ void MainWindow::moveEnemy()
                 buu->setPos(280,280);
                 buu->setPosx(280);
                 buu->setPosy(280);
-                qDebug() <<"PERSONAJE PERDIO ";
             }
         }
         else
@@ -407,8 +404,6 @@ void MainWindow::moveEnemy()
             personaje->setPos(-100,-100);
             personaje->setPosx(-100);
             personaje->setPosy(-100);
-//            scene->removeItem(personaje);
-//            scene->addItem(textF);
         }
 
     }
@@ -437,7 +432,6 @@ void MainWindow::moveEnemy()
                 buu->setPos(280,280);
                 buu->setPosx(280);
                 buu->setPosy(280);
-                qDebug() <<"PERSONAJE PERDIO ";
             }
         }
         else
@@ -449,7 +443,6 @@ void MainWindow::moveEnemy()
             personaje->setPos(-100,-100);
             personaje->setPosx(-100);
             personaje->setPosy(-100);
-            //scene->removeItem(personaje);
         }
     }
 //**************************************************************************
@@ -481,7 +474,6 @@ void MainWindow::moveEnemy()
                     buu->setPos(280,280);
                     buu->setPosx(280);
                     buu->setPosy(280);
-                    qDebug() <<"PERSONAJE PERDIO ";
                 }
             }
             else
@@ -519,7 +511,6 @@ void MainWindow::moveEnemy()
                     buu->setPos(280,280);
                     buu->setPosx(280);
                     buu->setPosy(280);
-                    qDebug() <<"PERSONAJE PERDIO ";
                 }
             }
             else
@@ -559,7 +550,6 @@ void MainWindow::moveEnemy()
                     buu->setPos(280,280);
                     buu->setPosx(280);
                     buu->setPosy(280);
-                    qDebug() <<"PERSONAJE PERDIO ";
                 }
             }
             else
@@ -598,7 +588,6 @@ void MainWindow::moveEnemy()
                     buu->setPos(280,280);
                     buu->setPosx(280);
                     buu->setPosy(280);
-                    qDebug() <<"PERSONAJE PERDIO ";
                 }
             }
             else
@@ -639,7 +628,6 @@ void MainWindow::moveEnemy()
                         buu->setPos(280,280);
                         buu->setPosx(280);
                         buu->setPosy(280);
-                        qDebug() <<"PERSONAJE PERDIO ";
                     }
                 }
                 else
@@ -650,8 +638,6 @@ void MainWindow::moveEnemy()
                     personaje->setPos(-100,-100);
                     personaje->setPosx(-100);
                     personaje->setPosy(-100);
-        //            scene->removeItem(personaje);
-        //            scene->addItem(textF);
                 }
             }
             else if(buu3->x() > personaje->x()){
@@ -679,7 +665,6 @@ void MainWindow::moveEnemy()
                         buu->setPos(280,280);
                         buu->setPosx(280);
                         buu->setPosy(280);
-                        qDebug() <<"PERSONAJE PERDIO ";
                     }
                 }
                 else
@@ -690,8 +675,6 @@ void MainWindow::moveEnemy()
                     personaje->setPos(-100,-100);
                     personaje->setPosx(-100);
                     personaje->setPosy(-100);
-        //            scene->removeItem(personaje);
-        //            scene->addItem(textF);
                 }
             }
 
@@ -721,7 +704,6 @@ void MainWindow::moveEnemy()
                         buu->setPos(280,280);
                         buu->setPosx(280);
                         buu->setPosy(280);
-                        qDebug() <<"PERSONAJE PERDIO ";
                     }
                 }
                 else
@@ -732,8 +714,6 @@ void MainWindow::moveEnemy()
                     personaje->setPos(-100,-100);
                     personaje->setPosx(-100);
                     personaje->setPosy(-100);
-        //            scene->removeItem(personaje);
-        //            scene->addItem(textF);
                 }
 
             }
@@ -762,7 +742,6 @@ void MainWindow::moveEnemy()
                         buu->setPos(280,280);
                         buu->setPosx(280);
                         buu->setPosy(280);
-                        qDebug() <<"PERSONAJE PERDIO ";
                     }
                 }
                 else
@@ -773,7 +752,6 @@ void MainWindow::moveEnemy()
                     personaje->setPos(-100,-100);
                     personaje->setPosx(-100);
                     personaje->setPosy(-100);
-                    //scene->removeItem(personaje);
                 }
             }
 
